@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "../Hooks/useFetch";
 import { IDataContext } from "../Types/IDataContext";
 import { IProduct } from "../Types/IProduct";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const DataContext = React.createContext<IDataContext | null>(null);
 
@@ -21,13 +22,22 @@ export const DataContextProvider = (
   const [products, setProducts] = React.useState<IProduct[]>([]);
   const [totalPrice, setTotalPrice] = React.useState(0.00);
 
+  const [localStoragedCart, setLocalStoragedCart] = useLocalStorage<IProduct[]>('cart', cart);
+
+  React.useEffect(() => {
+    if (localStoragedCart.length) {
+      setCart(localStoragedCart)
+    }
+  }, []);
+
   React.useEffect(() => {
     const total = cart.reduce((acc, item) => {
       return acc + item.price
     }
     , 0.00)
     setTotalPrice(total)
-  }, [cart])
+    setLocalStoragedCart(cart)
+  }, [cart, setLocalStoragedCart])
 
   React.useEffect(() => {
     if (data) {
