@@ -6,7 +6,8 @@ Projeto desenvolvido com o intuito de utilizar a menor quantidade de bibliotecas
 
 - [React](https://react.dev/)
 - [React DOM](https://www.npmjs.com/package/react-dom)
-- [React Router DOM](react-router-dom)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [DotEnv](https://www.npmjs.com/package/dotenv)
 
 Para utilizar em modo desenvolvimento use
 
