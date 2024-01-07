@@ -8,7 +8,7 @@ import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner'
 
 export const Product = () => {
   const { id } = useParams()
-  const { data, error } = useFetch<IProduct>(`https://fakestoreapi.com/products/${id}`)
+  const { data, error } = useFetch<IProduct>(`${import.meta.env.VITE_API_URL}/products/${id}`)
 
   if (error) alert(error)
 

@@ -16,7 +16,7 @@ export const useDataContext = () => {
 export const DataContextProvider = (
   { children }: React.PropsWithChildren
 ) => {
-  const [url, setUrl] = React.useState<string>('https://fakestoreapi.com/products');
+  const [url, setUrl] = React.useState<string>(`${import.meta.env.VITE_API_URL}/products`);
   const { data, loading, error } = useFetch<IProduct[]>(url);
   const [cart, setCart] = React.useState<IProduct[]>([]);
   const [products, setProducts] = React.useState<IProduct[]>([]);

@@ -4,7 +4,7 @@ import { useDataContext } from '../../Context/DataContext';
 import './SelectCategory.css';
 
 export const SelectCategory = () => {
-  const {data} = useFetch<string[]>('https://fakestoreapi.com/products/categories');
+  const {data} = useFetch<string[]>(`${import.meta.env.VITE_API_URL}/products/categories`);
   const {setUrl} = useDataContext();
 
   if (!data) return null;
@@ -19,7 +19,7 @@ export const SelectCategory = () => {
     if(value)
       value = `category/${value}`
     
-    setUrl(`https://fakestoreapi.com/products/${value}`);
+    setUrl(`${import.meta.env.VITE_API_URL}/products/${value}`);
   }
 
   return (
