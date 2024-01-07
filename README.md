@@ -33,3 +33,5 @@ Para acessar a API clique [AQUI](https://fakestoreapi.com/docs)
 - **Filtro e Pesquisa:** Implemente um filtro e uma barra de pesquisa para filtrar os produtos por nome ou categoria.
 - **Responsividade:** A aplicação deve ser responsiva para diferentes dispositivos.
 - **Adicionar ao Carrinho:** Possibilidade de adicionar produtos a um carrinho de compras, exibindo a quantidade total de itens no carrinho.
+
+Para mais informações leia o DOME.md
