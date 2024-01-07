@@ -30,6 +30,7 @@ const styles: { [key: string]: CSSProperties } = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 9999,
   },
   modal: {
     backgroundColor: '#fff',
@@ -39,6 +40,7 @@ const styles: { [key: string]: CSSProperties } = {
     maxWidth: '500px',
     maxHeight: '80%',
     overflowY: 'auto',
+    zIndex: 9999,
   },
   closeButton: {
     display: 'block',
