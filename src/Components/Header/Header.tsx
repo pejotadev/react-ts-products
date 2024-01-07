@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import { useDataContext } from '../../Context/DataContext';
 import CartSVG from '../../assets/CartSVG';
 import { Search } from '../Search/Search';
