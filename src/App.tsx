@@ -24,17 +24,3 @@ function App() {
 }
 
 export default App;
-
-
-/**   <div className="container">
-      <BrowserRouter>
-        <DataContextProvider>
-          <main>
-            <Header />
-            <Routes>
-
-            </Routes>
-          </main>
-        </DataContextProvider>
-      </BrowserRouter>
-    </div> */
