@@ -18,7 +18,9 @@ export const Header = () => {
 
       <Search />
 
-      <div className="cart-menu" onClick={() => setIsModalOpen(true)}> 
+      <div 
+        className="cart-menu" 
+        onClick={() => setIsModalOpen(true)}> 
         <CartSVG 
           title={'Ver Carrinho de compras'} 
           color='currentColor' />
