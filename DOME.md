@@ -13,7 +13,7 @@ Para participar, você deve se cadastrar no GitHub através do link abaixo para 
 O objetivo deste desafio é avaliar suas habilidades em desenvolvimento front-end utilizando React com TypeScript. Você será solicitado a criar uma aplicação de catálogo de produtos. 
 
 ## Requisitos: Desenvolva uma aplicação de catálogo de produtos com as seguintes funcionalidades: 
-Listagem de Produtos: Exiba uma lista de produtos a partir de um arquivo JSON simulando uma API. 
+* **Listagem de Produtos:** Exiba uma lista de produtos a partir de um arquivo JSON simulando uma API. 
 * **Detalhes do Produto:** Ao clicar em um produto, exiba os detalhes do mesmo. 
 * **Filtro e Pesquisa:** Implemente um filtro e uma barra de pesquisa para filtrar os produtos por nome ou categoria. 
 * **Responsividade:** A aplicação deve ser responsiva para diferentes dispositivos. 
