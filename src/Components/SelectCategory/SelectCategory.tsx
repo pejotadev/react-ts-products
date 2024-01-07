@@ -1,6 +1,7 @@
 import Select from '../Forms/Select';
 import useFetch from '../../Hooks/useFetch';
 import { useDataContext } from '../../Context/DataContext';
+import './SelectCategory.css';
 
 export const SelectCategory = () => {
   const {data} = useFetch<string[]>('https://fakestoreapi.com/products/categories');
@@ -22,7 +23,7 @@ export const SelectCategory = () => {
   }
 
   return (
-    <div className="">
+    <div className="select-category">
       <Select label={'Categorias'} onChange={handleChange} options={options}  
       />
     </div>

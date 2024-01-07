@@ -1,0 +1,10 @@
+.select-category {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 10px;
+}
+
+.select-category > select {
+  border: none; 
+  outline: none;
+}
