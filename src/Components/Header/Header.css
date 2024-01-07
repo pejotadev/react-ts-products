@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px 0;
+}
+
+.logo {
+  max-height: 25px;
+  margin: 0 15px;
+}
+
+.cart-menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: thistle;
+  margin-left: 10px;
+}
