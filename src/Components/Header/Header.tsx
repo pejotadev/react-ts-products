@@ -3,7 +3,8 @@ import { useDataContext } from '../../Context/DataContext';
 import CartSVG from '../../assets/CartSVG';
 import { PurchaseModal } from '../PurchaseModal/PurchaseModal';
 import { Search } from '../Search/Search';
-import './Header.css';
+import './header.css';
+import { NavLink } from 'react-router-dom';
 
 export const Header = () => {
   const {cart, totalPrice} = useDataContext();
@@ -11,11 +12,13 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <img 
-        className="logo" 
-        src="https://www.aec.com.br/wp-content/themes/aec/dist/img/logotipo.webp" 
-        alt="AEC Teste" />
-
+      <NavLink to='/'>
+        <img 
+          className="logo" 
+          src="https://www.aec.com.br/wp-content/themes/aec/dist/img/logotipo.webp" 
+          alt="AEC Teste" />
+      </NavLink>
+      
       <Search />
 
       <div className="cart-menu" onClick={() => setIsModalOpen(true)}> 

@@ -22,9 +22,11 @@ export const ProductsList = () => {
         
         <div className="card-footer">
           <div className="wsk-cp-text">
-            <div className="category">
-              <span>{item.category}</span>
-            </div>
+            <NavLink to={`/${item.id}`}>
+              <div className="category">
+                <span>{item.category}</span>
+              </div>
+            </NavLink>
             <div className="title-product">
               <h4>{item.title}</h4>
             </div>
