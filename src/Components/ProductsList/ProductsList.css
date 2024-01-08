@@ -15,7 +15,7 @@
   position:relative;
   margin:20px auto;
   flex: 1 1 calc(25% - 10px);
-  margin: 5px; 
+  margin: 5px 10px;
   height: 300px;
   max-width: 300px;
   display: flex;
@@ -198,12 +198,6 @@
   }
   .wsk-cp-product .wsk-cp-text .category{
     margin-top: 0px;
-  }
-  .buy-btn{
-    border-color: var(--text-color);
-    background: var(--text-color);
-    color: var(--background-color);
-    cursor: pointer;
   }
 
 }
