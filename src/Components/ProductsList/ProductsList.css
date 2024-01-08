@@ -38,18 +38,13 @@
   max-height: 200px;
   overflow: hidden;
 }
-.wsk-cp-img img{
+.wsk-cp-img canvas{
   width: 100%;
   height: auto;
-  border-radius: 6px;
   transition: all 0.2s ease-in-out;
-  border-radius:6px;
 }
 .wsk-cp-product:hover .wsk-cp-img{
   top:-40px;
-}
-.wsk-cp-product:hover .wsk-cp-img img{
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 .wsk-cp-text {
   max-width: 100%;

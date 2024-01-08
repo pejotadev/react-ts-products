@@ -3,6 +3,7 @@ import { useDataContext } from '../../Context/DataContext';
 import CartSVG from '../../assets/CartSVG';
 import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 import './ProductsList.css';
+import TransparentImage from '../Utils/TransparentImage';
 
 export const ProductsList = () => {
   const {loading, products, setCart, cart} = useDataContext();
@@ -16,7 +17,8 @@ export const ProductsList = () => {
       <div className="wsk-cp-product" key={item.id}>
         <NavLink to={`/${item.id}`}>
           <div className="wsk-cp-img">
-            <img src={item.image} alt={item.title} className="img-responsive" />
+            {/* <img src={item.image} alt={item.title} className="img-responsive" /> */}
+            <TransparentImage src={item.image} />
           </div>
         </NavLink>
         
