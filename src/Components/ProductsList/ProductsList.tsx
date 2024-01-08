@@ -14,16 +14,16 @@ export const ProductsList = () => {
     <>
     <section className="products">
     {products.map((item) => (
-      <div className="wsk-cp-product" key={item.id}>
+      <div className="product" key={item.id}>
         <NavLink to={`/${item.id}`}>
-          <div className="wsk-cp-img">
+          <div className="img">
             {/* <img src={item.image} alt={item.title} className="img-responsive" /> */}
             <TransparentImage src={item.image} />
           </div>
         </NavLink>
         
         <div className="card-footer">
-          <div className="wsk-cp-text">
+          <div className="text">
             <NavLink to={`/${item.id}`}>
               <div className="category">
                 <span>{item.category}</span>
