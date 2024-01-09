@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import useFetch from "../Hooks/useFetch";
 import useLocalStorage from "../Hooks/useLocalStorage";
 import { IDataContext } from "../Types/IDataContext";
@@ -22,17 +22,25 @@ export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
 
   const [localStoragedCart, setLocalStoragedCart] = useLocalStorage<IProduct[]>('cart', cart);
 
+  const handleSetLocalStoragedCart = useCallback((newCart: IProduct[]) => {
+    setLocalStoragedCart(newCart);
+  }, [setLocalStoragedCart]);
+  
+  const handleSetCart = useCallback((newCart: IProduct[]) => {
+    setCart(newCart);
+  }, []);
+
   // Atualiza o carrinho com os dados do localStorage na montagem do componente
   useEffect(() => {
     if (localStoragedCart.length) {
-      setCart(localStoragedCart)
+      handleSetCart(localStoragedCart)
     }
-  }, [localStoragedCart]);
+  }, [handleSetCart, localStoragedCart]);
 
   // Atualiza o totalPrice e o localStorage quando o carrinho muda
   useEffect(() => {
-    setLocalStoragedCart(cart);
-  }, [cart, setLocalStoragedCart]);
+    handleSetLocalStoragedCart(cart);
+  }, [cart, handleSetLocalStoragedCart]);
 
   // Atualiza os produtos quando os dados são recebidos
   useEffect(() => {
