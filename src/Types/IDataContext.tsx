@@ -7,7 +7,6 @@ export type IDataContext = {
   cart: IProduct[];
   setCart: React.Dispatch<React.SetStateAction<IProduct[]>>;
   totalPrice: number;
-  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
   url: string;
   setUrl: React.Dispatch<React.SetStateAction<string>>;
   products: IProduct[];

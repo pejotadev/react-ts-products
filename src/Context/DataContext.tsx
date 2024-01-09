@@ -1,59 +1,59 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import useFetch from "../Hooks/useFetch";
+import useLocalStorage from "../Hooks/useLocalStorage";
 import { IDataContext } from "../Types/IDataContext";
 import { IProduct } from "../Types/IProduct";
-import useLocalStorage from "../Hooks/useLocalStorage";
 
 const DataContext = React.createContext<IDataContext | null>(null);
 
 export const useDataContext = () => {
   const context = React.useContext(DataContext);
-  if (!context) 
+  if (!context) {
     throw new Error("useDataContext must be used within a DataContextProvider");
+  }
   return context;
 }
 
-export const DataContextProvider = (
-  { children }: React.PropsWithChildren
-) => {
-  const [url, setUrl] = React.useState<string>(`${import.meta.env.VITE_API_URL}/products`);
+export const DataContextProvider = ({ children }: React.PropsWithChildren) => {
+  const [url, setUrl] = useState<string>(`${import.meta.env.VITE_API_URL}/products`);
   const { data, loading, error } = useFetch<IProduct[]>(url);
-  const [cart, setCart] = React.useState<IProduct[]>([]);
-  const [products, setProducts] = React.useState<IProduct[]>([]);
-  const [totalPrice, setTotalPrice] = React.useState(0.00);
+  const [cart, setCart] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
 
   const [localStoragedCart, setLocalStoragedCart] = useLocalStorage<IProduct[]>('cart', cart);
 
-  React.useEffect(() => {
+  // Atualiza o carrinho com os dados do localStorage na montagem do componente
+  useEffect(() => {
     if (localStoragedCart.length) {
       setCart(localStoragedCart)
     }
-  }, []);
+  }, [localStoragedCart]);
 
-  React.useEffect(() => {
-    const total = cart.reduce((acc, item) => {
-      return acc + item.price
-    }
-    , 0.00)
-    setTotalPrice(total)
-    setLocalStoragedCart(cart)
-  }, [cart, setLocalStoragedCart])
+  // Atualiza o totalPrice e o localStorage quando o carrinho muda
+  useEffect(() => {
+    setLocalStoragedCart(cart);
+  }, [cart, setLocalStoragedCart]);
 
-  React.useEffect(() => {
+  // Atualiza os produtos quando os dados são recebidos
+  useEffect(() => {
     if (data) {
-      setProducts(data)
+      setProducts(data);
     }
-  }, [data])
+  }, [data]);
+
+  const totalPrice = useMemo(() => {
+    return cart.reduce((acc, item) => acc + item.price, 0.00);
+  }, [cart]);
 
   return (
     <DataContext.Provider
       value={{ 
         data, loading, error, 
         cart, setCart,
-        totalPrice, setTotalPrice,
+        totalPrice,
         url, setUrl,
         products, setProducts
-       }}
+      }}
     >
       {children}
     </DataContext.Provider>
