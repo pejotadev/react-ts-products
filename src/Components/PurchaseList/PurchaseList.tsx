@@ -1,29 +1,37 @@
 import { useDataContext } from '../../Context/DataContext';
+import Button from '../Forms/Button';
 import './PurchaseList.css';
 
 export const PurchaseList = () => {
-  const {cart, totalPrice, setCart} = useDataContext();
+  const { cart, totalPrice, setCart } = useDataContext();
+
+  const formatPrice = (price: number) => {
+    return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  };
 
   const removeItem = (index: number) => {
     const newCart = cart.filter((_item, i) => i !== index);
     setCart(newCart);
-  }
+  };
 
   return (
     <ul className="cart-list">
       {cart.map((item, index) => (
-        <li key={index} className="cart-item">
+        <li key={item.id || index} className="cart-item">
           <span className="item-title">{item.title}</span>
-          <span className="item-price">{item.price.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</span>
-          <span 
-            className="remove-item" 
-            onClick={() => removeItem(index)}>x</span>
+          <span className="item-price">{formatPrice(item.price)}</span>
+          <Button
+            className="remove-item"
+            onClick={() => removeItem(index)}
+            aria-label={`Remover ${item.title} do carrinho`}>
+            x
+          </Button>
         </li>
       ))}
       <li className="cart-total">
         <span>Total</span>
-        <span>{totalPrice.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}</span>
+        <span>{formatPrice(totalPrice)}</span>
       </li>
     </ul>
-  )
-}
+  );
+};
