@@ -1,6 +1,6 @@
 import React from 'react';
 import { PurchaseList } from '../PurchaseList/PurchaseList';
-import Modal from '../Utils/Modal';
+import Modal from '../Modal/Modal';
 import './PurchaseModal.css';
 
 interface PurchaseModalProps {

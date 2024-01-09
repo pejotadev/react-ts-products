@@ -3,7 +3,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 5px;
   max-width: 600px;
   margin: auto;
 }
@@ -16,13 +16,13 @@
 }
 
 .purchase-modal section {
-  padding: 10px;
+  padding: 5px;
   border-top: 1px solid #e0e0e0;
 }
 
 @media (max-width: 768px) {
   .purchase-modal {
     width: 90%;
-    padding: 10px;
+    padding: 5px;
   }
 }
