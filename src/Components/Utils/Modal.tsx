@@ -13,7 +13,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     <div style={styles.overlay}>
       <div style={styles.modal}>
         <div style={styles.closeDiv}>
-          <button onClick={onClose} style={styles.closeButton}>Close</button>
+          <button onClick={onClose} style={styles.closeButton}>x</button>
         </div>
         {children}
       </div>
@@ -36,7 +36,7 @@ const styles: { [key: string]: CSSProperties } = {
   },
   modal: {
     backgroundColor: '#fff',
-    padding: '20px',
+    padding: '5px',
     borderRadius: '5px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     maxWidth: '500px',
