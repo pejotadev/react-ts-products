@@ -12,8 +12,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div style={styles.overlay}>
       <div style={styles.modal}>
+        <div style={styles.closeDiv}>
+          <button onClick={onClose} style={styles.closeButton}>Close</button>
+        </div>
         {children}
-        <button onClick={onClose} style={styles.closeButton}>Close</button>
       </div>
     </div>
   );
@@ -44,12 +46,13 @@ const styles: { [key: string]: CSSProperties } = {
   },
   closeButton: {
     display: 'block',
-    padding: '5px 10px',
-    backgroundColor: '#444',
-    color: '#fff',
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
+  },
+  closeDiv: {
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
 };
 
