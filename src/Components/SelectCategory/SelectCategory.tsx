@@ -4,28 +4,26 @@ import { useDataContext } from '../../Context/DataContext';
 import './SelectCategory.css';
 
 export const SelectCategory = () => {
-  const {data} = useFetch<string[]>(`${import.meta.env.VITE_API_URL}/products/categories`);
-  const {setUrl} = useDataContext();
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const { data } = useFetch<string[]>(`${apiUrl}/products/categories`);
+  const { setUrl } = useDataContext();
 
   if (!data) return null;
 
-  const options = data.map((category: string) => {
-    return {value: category, label: category}
-  });
+  const buildOptions = () => {
+    const categoryOptions = data.map(category => ({ value: category, label: category }));
+    categoryOptions.push({ value: '', label: 'Todas' });
+    return categoryOptions;
+  };
 
-  options.push({value: '', label: 'Todas'});
-
-  const handleChange = (value: string) => {
-    if(value)
-      value = `category/${value}`
-    
-    setUrl(`${import.meta.env.VITE_API_URL}/products/${value}`);
+  const handleChange = (selectedCategory: string) => {
+    const categoryPath = selectedCategory ? `category/${selectedCategory}` : '';
+    setUrl(`${apiUrl}/products/${categoryPath}`);
   }
 
   return (
     <div className="select-category">
-      <Select label={'Categorias'} onChange={handleChange} options={options}  
-      />
+      <Select label="Categorias" onChange={handleChange} options={buildOptions()} />
     </div>
-  )
-}
+  );
+};
