@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Each } from '../Utils/Each';
 
 const Select = ({ options, label, onChange }: 
   { 
@@ -18,11 +19,11 @@ const Select = ({ options, label, onChange }:
   return (
     <select value={selectedOption} onChange={handleChange}>
       <option value="">{label}</option>
-      {options.map((option, index) => (
-        <option key={index} value={option.value}>
+      <Each of={options} render={(option, index) => {
+        return <option key={index} value={option.value}>
           {option.label}
-        </option>
-      ))}
+        </option>;
+      }} />
     </select>
   );
 };
