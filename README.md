@@ -2,7 +2,7 @@
 
 Projeto desenvolvido com o intuito de utilizar a menor quantidade de bibliotecas extras.
 
-Hospedado em: [https://react-ts-products-dhhevsdp0-pejotadevs-projects.vercel.app/](https://react-ts-products-dhhevsdp0-pejotadevs-projects.vercel.app/)
+Hospedado em: [https://react-ts-products.vercel.app/](https://https://react-ts-products.vercel.app/)
 
 # Dependencias
 
