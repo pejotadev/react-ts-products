@@ -3,8 +3,8 @@ import { useDataContext } from '../../Context/DataContext';
 import CartSVG from '../../assets/CartSVG';
 import { PurchaseModal } from '../PurchaseModal/PurchaseModal';
 import { Search } from '../Search/Search';
-import './header.css';
 import { NavLink } from 'react-router-dom';
+import './header.css';
 
 export const Header = () => {
   const {cart, totalPrice} = useDataContext();
