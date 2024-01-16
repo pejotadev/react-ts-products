@@ -1,22 +1,24 @@
 # netlify.toml
+[context.production.environment]
+NODE_VERSION = "20"
 [build]
-  # O diretório base do projeto é a raiz do repositório
-  base = "/"
-  # O diretório para publicar é o padrão gerado pelo Vite após o build
-  publish = "dist"
-  # O comando para construir o projeto, conforme definido em package.json
-  command = "npm run build"
+# O diretório base do projeto é a raiz do repositório
+base = "/"
+# O diretório para publicar é o padrão gerado pelo Vite após o build
+publish = "dist"
+# O comando para construir o projeto, conforme definido em package.json
+command = "npm run build"
 
 # Redirecionamentos (opcional, personalize conforme necessário)
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+status = 200
+to = "/index.html"
 
 # Cabeçalhos de segurança (opcional, mas recomendado)
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "frame-ancestors 'self'"
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+for = "/*"
+[headers.values]
+Content-Security-Policy = "frame-ancestors 'self'"
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
